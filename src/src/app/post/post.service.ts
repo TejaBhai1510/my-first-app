@@ -21,32 +21,32 @@ export class PostService {
     return this.httpClient.get(this.apiURL, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
-  create(post: Post): Observable<any> {
-    return this.httpClient.post(this.apiURL
-      + '/posts/', JSON.stringify(post), this.httpOptions)
-      .pipe(catchError(this.errorHandler)
-      )
-  }
+create(post:Post):Observable<any>{
+  return this.httpClient.post(this.apiURL
+    + '/posts/',JSON.stringify(post),this.httpOptions)
+    .pipe(catchError(this.errorHandler)
+  )
+}
 
-  find(id: number): Observable<any> {
-    return this.httpClient.get(this.apiURL + '/posts/' + id)
-      .pipe(
-        catchError(this.errorHandler)
-      )
-  }
+find(id:number): Observable<any>{
+  return this.httpClient.get(this.apiURL + '/posts/' + id)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
 
-  update(id: number, post: Post): Observable<any> {
-    return this.httpClient.put(this.apiURL + '/posts/' + id,
-      JSON.stringify(post),
-      this.httpOptions)
-      .pipe(catchError(this.errorHandler)
-      )
-  }
+update(id:number,post:Post): Observable<any>{
+  return this.httpClient.put(this.apiURL+ '/posts/'+id, 
+    JSON.stringify(post),
+this.httpOptions)
+.pipe(catchError(this.errorHandler)
+)
+}
 
-  delete(id: number) {
-    return this.httpClient.delete(this.apiURL + '/posts/' + id, this.httpOptions)
-      .pipe(catchError(this.errorHandler))
-  }
+delete (id:number){
+  return this.httpClient.delete(this.apiURL + '/posts/' + id ,this.httpOptions)
+  .pipe(catchError(this.errorHandler))
+}
 
 
   private errorHandler(error: HttpErrorResponse): Observable<never> {
